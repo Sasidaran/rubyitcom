@@ -1,0 +1,1 @@
+$(".js_display_role_<%= @user.id %>").html("<%= escape_javascript render(:partial => 'users/make_admin', :locals => { :user => @user }) %>")

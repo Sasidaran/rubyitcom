@@ -1,0 +1,16 @@
+<div class="container">
+<%= simple_form_for(@application, :html => {class: "form-horizontal"}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :status, as: :boolean, boolean_style: :inline %>
+    <%= f.input :group_ids,collection: Group.all %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn' %>
+  </div>
+<% end %>
+</div>

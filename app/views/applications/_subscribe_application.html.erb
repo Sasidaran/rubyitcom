@@ -1,0 +1,5 @@
+<% if application.is_subscribed?(current_user) %>
+  <%= link_to 'Unsubscribe', subscribe_application_path(application, subscribe: 'true'), class: 'btn btn-danger', remote: true  %>
+<%else%>
+  <%= link_to 'Subscribe', subscribe_application_path(application), class: 'btn btn-success', remote: true %>
+<%end%>

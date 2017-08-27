@@ -1,0 +1,43 @@
+<h1>Listing users</h1>
+
+<table class='table table-striped table-bordered table-hover'>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Roles</th>
+    <th>Action</th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= link_to user.first_name, edit_user_path(user) %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.email %></td>
+    <td>
+      <%= user.roles.pluck(:name).to_sentence %>
+    </td>
+    <td>
+      <% unless user.is_super_admin? %>
+        <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <span class="js_display_role_<%= user.id %>">
+          <%= render 'users/make_admin', user: user  %>
+        </span>
+      <% end %>
+    </td>
+
+  </tr>
+<% end %>
+</table>
+<div class="row">
+  <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+</div>
+
+<%= simple_form_for('import_users', :url => import_users_path, :html => {:class => ''}) do |f| %>
+  <h3>Bulk Users Upload</h3>
+  <div class="center">
+    <%= f.input :file_upload, as: :file, input_html: { accept: ".csv" }, required: false %>
+    <br/>
+    <%= f.button :submit,class: 'btn btn-default' %>
+  </div>
+<% end %>
