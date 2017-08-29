@@ -1,0 +1,1 @@
+$(".middle-panel_<%= @communication.id %>").html("<%= escape_javascript render(:partial => 'groups/list_applications', :locals => { :group_applications => @group_applications }) %>")

@@ -1,0 +1,17 @@
+<div class="container left-panel">
+<%= @communication.title%>
+  <ul>
+  <% @groups.each do |group| %>
+  <li>
+    
+    <%= link_to group.name, list_applications_group_path(group, communication_id: @communication.id), class: 'btn btn-success', remote: true %>
+  </li>
+  <% end %>
+  </ul>
+</div>
+
+<div class="container middle-panel_<%= @communication.id%>">
+</div>
+
+<div class="container right-panel">
+</div>

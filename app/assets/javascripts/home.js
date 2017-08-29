@@ -16,4 +16,7 @@ $( document ).ready(function() {
     return setTimeout(flashCallback, 2000);
 
 	});
+
+    $('.js_text').froalaEditor();
+
 });

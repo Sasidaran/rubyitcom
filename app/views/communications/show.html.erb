@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @communication.title %>
+</p>
+
+<p>
+  <b>Sub title:</b>
+  <%= @communication.sub_title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @communication.description %>
+</p>
+
+<p>
+  <b>Save as template:</b>
+  <%= @communication.save_as_template %>
+</p>
+
+
+<%= link_to 'Edit', edit_communication_path(@communication) %> |
+<%= link_to 'Back', communications_path %>

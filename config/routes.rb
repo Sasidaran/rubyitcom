@@ -1,5 +1,16 @@
 Rubyitcom::Application.routes.draw do
 
+  resources :communications do
+    member do
+      get :manage_communication
+    end
+    collection do
+      get :templates
+    end
+  end
+
+
+
   resources :applications do
     member do
       get :subscribe
@@ -7,7 +18,11 @@ Rubyitcom::Application.routes.draw do
   end
 
 
-  resources :groups
+  resources :groups  do
+    member do
+      get :list_applications
+    end
+  end
 
 
   #root 'home#index'

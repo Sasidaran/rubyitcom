@@ -81,4 +81,11 @@ class GroupsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def list_applications
+    @group = Group.find(params[:id])
+    @communication = Communication.find(params[:communication_id])
+    @group_applications = @group.applications.all
+    
+  end
 end

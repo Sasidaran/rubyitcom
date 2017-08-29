@@ -1,0 +1,13 @@
+<h1>Listing Group applications</h1>
+
+<div class="container">
+<%= @group.name%>
+  <ul>
+  <% @group_applications.each do |group_application| %>
+  <li>
+    
+    <%= link_to group_application.name, applications_path(group_application), class: ''%>
+  </li>
+  <% end %>
+  </ul>
+</div>

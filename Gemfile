@@ -13,6 +13,8 @@ gem 'devise', '2.1.0'
 gem 'activerecord-native_db_types_override'
 gem 'simple_form'
 gem 'cancan'
+gem "wysiwyg-rails"
+
 
 # Gems used only for assets and not required
 # in production environments by default.

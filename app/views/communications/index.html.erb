@@ -1,0 +1,33 @@
+<h1>Listing communications</h1>
+
+<table class='table table-striped table-bordered table-hover'>
+  <tr>
+    <th>Title</th>
+    <th>Sub title</th>
+    <th>Description</th>
+    <th>Save as template</th>
+    <th>Actions</th>
+  </tr>
+
+<% @communications.each do |communication| %>
+  <tr>
+    <td><%= communication.title %></td>
+    <td><%= communication.sub_title %></td>
+    <td><%= communication.description.html_safe %></td>
+    <td><%= communication.save_as_template %></td>
+    <td><%= link_to 'Show', communication %>
+      <%= link_to 'Edit', edit_communication_path(communication) %>
+      <%= link_to 'Destroy', communication, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Manage', manage_communication_communication_path(communication.id), class: 'btn btn-success' %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<div class="row">
+  <%= will_paginate @communications, renderer: BootstrapPagination::Rails %>
+</div>
+<%= link_to 'New Communication', new_communication_path %>
+
+

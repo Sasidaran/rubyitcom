@@ -4,7 +4,7 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :description, as: :text %>
+    <%= f.input :description, as: :text, input_html: {class: 'js_text'} %>
     <%= f.input :status, as: :boolean, boolean_style: :inline %>
     <%= f.input :group_ids,collection: Group.all %>
   </div>

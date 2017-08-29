@@ -1,0 +1,20 @@
+<div class="container">
+<%= simple_form_for(@communication, :html => {class: "form-horizontal"}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :sub_title %>
+    <%= f.input :description, as: :text, input_html: {class: 'js_text'} %>
+    <%= f.input :save_as_template %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+
+
+</div>

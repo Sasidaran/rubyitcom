@@ -33,7 +33,7 @@ class Ability
     end
 
     if user.is_admin? || user.is_super_admin?
-        can :manage, [User, Group]
+        can :manage, [User, Group, Communication]
         can :crud, Application
     end
 
